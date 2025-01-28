@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ROTATE : MonoBehaviour
+public class Rotate : MonoBehaviour
 {
     [SerializeField]
     private float _rotateSpeed = 5;
