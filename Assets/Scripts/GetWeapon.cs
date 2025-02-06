@@ -1,11 +1,17 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class GetWeapon : MonoBehaviour
 {
     private Gun _weapon;
-
+    private UIController _uiController;
+    private void Start()
+    {
+      _uiController = gameObject.GetComponent<UIController>();
+      _uiController.ShowBulletUI(false);
+    }
     public Gun Weapon
     {
       get{return _weapon;}
@@ -28,6 +34,14 @@ public class GetWeapon : MonoBehaviour
       weapon.localPosition = Vector3.zero;
       weapon.localRotation = Quaternion.identity;
       _weapon = weapon.GetComponent<Gun>();
-      _weapon.PickUpWeapon();
+      _weapon.PickUpWeapon(this);
+      gameObject.GetComponent<UIController>().ShowBulletUI(true);
+    }
+
+    public void RemoveWeapon()
+    {
+      Destroy(_weapon.gameObject);
+      _weapon = null;
+      gameObject.GetComponent<UIController>().ShowBulletUI(false);
     }
 }
