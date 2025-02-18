@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour
     
 
     _weaponAnimator.Play("Shoot", -1, 0f);
-    _weaponAnimator.Play("Shoot2", -1, 0f);
+   
     GameObject.Instantiate(_bullet, _bulletPivot.position, _bulletPivot.rotation);
     _currentBulletsNumber--;
     UpdateBulletsText();

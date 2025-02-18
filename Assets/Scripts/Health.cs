@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Die();
+            SoundManager.instance.Play("destroy");
         }
     }
         private void Die()
